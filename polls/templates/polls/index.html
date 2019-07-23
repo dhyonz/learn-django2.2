@@ -1,0 +1,23 @@
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        {% comment %} 3rd Tutorial {% endcomment %}
+        {% comment %} <li> {% endcomment %}
+        
+        {{ forloop.counter }}
+        <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}<br></a>
+        
+        {% comment %} </li> {% endcomment %}
+
+
+
+        {% comment %} 2nd Tutorial {% endcomment %}
+        {% comment %} <li><a href="{% url 'detail' question.id %}/">{{ question.question_text }}</a></li> {% endcomment %}
+        {% comment %} 1st Tutorial
+        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li> {% endcomment %}
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
